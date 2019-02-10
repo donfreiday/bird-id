@@ -1,6 +1,6 @@
 #Bird-ID
 
-###*Bird species image classification using Keras.*
+###Classify images of birds by species using Keras.
 
 ###Project Goals
 
