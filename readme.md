@@ -1,17 +1,17 @@
-#Bird-ID
+# Bird-ID #
 
-###Classify images of birds by species using Keras.
+### Classify images of birds by species using Keras. ###
 
-###Project Goals
+### Project Goals ###
 
 1. Develop a model which can classify bird species by image.
 2. Feed the model live, motion detected images from my birdfeeder.
 
-###Notes
+### Notes ###
 
 This project is my first real foray into machine learning, so many of these notes will no doubt be blindingly obvious to the informed reader. There are many gross simplifications present; please let me know of any mistakes.
 
-#####Terms
+##### Terms #####
 **AI** is artificial intelligence, possessed by machines which can perceive their environment and use this information to take actions towards a goal.
 
 **Machine learning** ('ML') is a subfield of AI using statistics to allow computers to "learn" from data.
@@ -32,5 +32,5 @@ A **Recurrent Neural Network** ('RNN') has special neurons which can 'remember' 
 
 **TensorFlow** ('TF') is Google's open-source dataflow programming software library.
 
-###Resources
+### Resources ###
 Trained using the [Caltech-USCD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)  dataset.
