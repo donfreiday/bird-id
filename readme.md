@@ -1,17 +1,23 @@
-# Bird-ID #
+# Bird-ID
 
-### Classify images of birds by species using Keras. ###
+### Classify images of birds by species using Keras.
 
-### Project Goals ###
+***
+
+### Project Goals
 
 1. Develop a model which can classify bird species by image.
 2. Feed the model live, motion detected images from my birdfeeder.
 
-### Notes ###
+***
+
+### Notes 
 
 This project is my first real foray into machine learning, so many of these notes will no doubt be blindingly obvious to the informed reader. There are many gross simplifications present; please let me know of any mistakes.
 
-##### Terms #####
+***
+
+### Terms
 **AI** is artificial intelligence, possessed by machines which can perceive their environment and use this information to take actions towards a goal.
 
 **Machine learning** ('ML') is a subfield of AI using statistics to allow computers to "learn" from data.
@@ -32,5 +38,51 @@ A **Recurrent Neural Network** ('RNN') has special neurons which can 'remember' 
 
 **TensorFlow** ('TF') is Google's open-source dataflow programming software library.
 
+
+***
+
+
+### Setting up the environment (Arch Linux)
+
+#### Python Virtual Environment:
+We'll want to use Python virtual environments to manage our dependencies, so install [virtualenv](https://virtualenv.pypa.io/en/stable/) and [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io/en/latest/). Follow the directions on the [Arch Wiki](https://wiki.archlinux.org/index.php/Python/Virtual_environment#Installation).
+
+Create an environment for use with Keras + TensorFlow environments: 
+
+```bash
+mkvirtualenv keras-tf -p python3 
+```
+
+You can switch to a Python virtual environment by using ```workon $environment```.
+
+#### TensorFlow:
+
+If you don't plan to use a GPU:
+
+```bash
+pip install --upgrade tensorflow
+```
+If you have an Nvidia GPU and wish to use that, install the Nvidia drivers and CUDA as per the [Arch wiki](https://wiki.archlinux.org/index.php/GPGPU#CUDA).
+
+```bash
+yay -Syu nvidia nvidia-utils cuda cudnn
+```
+
+Log out and back in so the cuda binaries are added to your PATH. Now test your installation; the cuda package installs to /op/cuda.
+
+```
+cp -r /opt/cuda/samples ~/
+cd ~/samples
+make
+~/samples/bin/x86_64/linux/release
+```
+
+
+```bash
+pip install --upgrade tensorflow-gpu
+```
+
+
 ### Resources ###
 Trained using the [Caltech-USCD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)  dataset.
+Some install steps taken from [this Medium article](https://medium.com/@k_efth/deep-learning-in-arch-linux-from-start-to-finish-with-pytorch-tensorflow-nvidia-cuda-9a873c2252ed).
