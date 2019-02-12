@@ -91,7 +91,7 @@ For now:
 pip install tensorflow-gpu==1.13.0rc1
 ```
 
-Test in Python interpreter:
+Test:
 
 ```python
 >>> from tensorflow.python.client import device_lib as dl
@@ -102,6 +102,37 @@ At this point I found out my GTX770 is too old : ```insufficient compute capabil
 
 So I'll be using my CPU. Oh well.
 
+***
+
+#### Keras:
+
+Install dependencies and then Keras:
+
+```bash
+pip install numpy scipy
+pip install scikit-learn
+pip install pillow
+pip install hSpy
+pip install keras
+```
+
+Make sure ```~/.keras/keras.json``` looks like this:
+
+```json
+{
+    "floatx": "float32",
+    "epsilon": 1e-07,
+    "backend": "tensorflow",
+    "image_data_format": "channels_last"
+}
+```
+
+Test Keras:
+
+```python
+>>> import keras
+Using Tensorflow backend.
+```
 
 ***
 
