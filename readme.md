@@ -60,28 +60,50 @@ You can switch to a Python virtual environment by using ```workon $environment``
 If you don't plan to use a GPU:
 
 ```bash
-pip install --upgrade tensorflow
+pip install tensorflow
 ```
+
+CPU users can skip the rest of this section.
+
 If you have an Nvidia GPU and wish to use that, install the Nvidia drivers and CUDA as per the [Arch wiki](https://wiki.archlinux.org/index.php/GPGPU#CUDA).
 
 ```bash
 yay -Syu nvidia nvidia-utils cuda cudnn
 ```
 
-Log out and back in so the cuda binaries are added to your PATH. Now test your installation; the cuda package installs to /op/cuda.
+Log out and back in so the cuda binaries are added to your PATH. 
 
-```
+The cuda package installs to /opt/cuda. Test your installation:
+
+```bash
 cp -r /opt/cuda/samples ~/
 cd ~/samples
 make
-~/samples/bin/x86_64/linux/release
+~/samples/bin/x86_64/linux/release/deviceQuery
 ```
 
+The last line of output should be ```Result = PASS```
+
+As of February 12, 2019, tensorflow-gpu doesn't support CUDA 10.0 (the Arch package version); this will change(!) with tensorflow-gpu version 1.13.0.
+For now:
 
 ```bash
-pip install --upgrade tensorflow-gpu
+pip install tensorflow-gpu==1.13.0rc1
 ```
 
+Test in Python interpreter:
+
+```python
+>>> from tensorflow.python.client import device_lib as dl
+>>> print(dl.list_local_devices())
+```
+
+At this point I found out my GTX770 is too old : ```insufficient compute capability: 3.5 required, device is 3.0```
+
+So I'll be using my CPU. Oh well.
+
+
+***
 
 ### Resources ###
 Trained using the [Caltech-USCD Birds-200-2011](http://www.vision.caltech.edu/visipedia/CUB-200-2011.html)  dataset.
